@@ -1,0 +1,8 @@
+Nose module for python is needed to run the tests.
+
+It's available in the software/Tests/lib directory. To install it:
+	1. Unpack the archive to a directory
+	2. Enter the new directory.
+	3. Execute "python setup.py install" as root
+
+The tests need to be in the test directory inside of the razorback-nugget-integration directory.

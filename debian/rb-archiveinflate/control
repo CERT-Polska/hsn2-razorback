@@ -1,0 +1,9 @@
+Package: hsn2-rb-archiveinflate
+Version: {VER}
+Section: unknown
+Priority: optional
+Architecture: {ARCH}
+Depends: hsn2-rb-nugget-commons, libarchive12, libconfig9, libssl1.0.0, uuid
+Maintainer: Wojciech Michalak (wojciech.michalak@nask.pl)
+Description: Razorback archive inflation nugget (archiveinflate) as a HSN2 python service.
+Distribution: {DEBIAN_DIST}
