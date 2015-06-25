@@ -29,12 +29,12 @@ PDFFOX = rb-$(SHORTPDFFOX)
 #Defines used in compliation
 WRAPPERDIR = src
 DEBUG = -g
-EXTRASC = -c api/*.c  -std=gnu99 `pkg-config openssl --cflags` `pkg-config libxml-2.0 --cflags` `pkg-config uuid --cflags` `pkg-config libconfig --cflags` `pkg-config zlib --cflags` -I$(APIDIR)/include/ $(DEBUG)   -D_GNU_SOURCE -fno-strict-aliasing
+EXTRASC = -c api/*.c  -std=gnu99 `pkg-config openssl --cflags` `pkg-config uuid --cflags` `pkg-config libconfig --cflags` `pkg-config zlib --cflags` -I$(APIDIR)/include/ $(DEBUG)   -D_GNU_SOURCE -fno-strict-aliasing
 CC = cc
 .PHONY: all clean scriptNugget swfScanner clamavNugget pdfFox yaraNugget virusTotal officeCat archiveInflate test tests nugget-commons scriptNuggetPKG swfScannerPKG clamavNuggetPKG pdfFoxPKG yaraNuggetPKG virusTotalPKG officeCatPKG archiveInflatePKG
 
 #Libraries required for each nugget
-SHAREDLIBS = -lpthread -lrt `pkg-config openssl --libs` `pkg-config libxml-2.0 --libs` `pkg-config uuid --libs` `pkg-config libconfig --libs`
+SHAREDLIBS = -lpthread -lrt `pkg-config openssl --libs` `pkg-config uuid --libs` `pkg-config libconfig --libs`
 CLAMAVLIBS = $(SHAREDLIBS) -lconfig  
 VIRUSTOTALLIBS = $(SHAREDLIBS) -lcurl  -ljson
 ARCHIVEINFLATELIBS =  $(SHAREDLIBS) -larchive
