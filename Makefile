@@ -69,7 +69,6 @@ clamavNugget:
 
 nugget-commons:
 	cd hsn2-nugget-commons; debuild -us -uc
-	mv python-hsn2-rb-nugget-commons*.deb ../
 
 setArch32:
 	$(eval ARCH := i386)
