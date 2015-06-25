@@ -1,0 +1,11 @@
+Source: hsn2-rb-pdffox
+Section: misc
+Priority: optional
+Maintainer: CERT Polska <info@cert.pl>
+Build-Depends: debhelper (>= 8.0.0), python-all (>= 2.6.6-3), python-setuptools, uuid-dev, libconfig-dev, libssl-dev, libssl-dev, zlib1g-dev
+Standards-Version: 3.9.3
+
+Package: hsn2-rb-pdffox
+Architecture: i386 amd64
+Depends: ${misc:Depends}, ${shlibs:Depends}, python-hsn2-rb-nugget-commons
+Description: Razorback rb-pdffox Nugget (pdfFox) as a HSN2 python service.

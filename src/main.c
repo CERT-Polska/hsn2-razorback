@@ -70,7 +70,7 @@ void* listenerThreadFunc(void* data) {
 
 
 		if (fgets(line, 1100, stdin) != NULL) {
-			sscanf(line, "--uuid=%s --type=%s --file=%s\n", &uuidStr, &filetype, &filepath);
+			sscanf(line, "--uuid=%s --type=%s --file=%s\n", uuidStr, filetype, filepath);
 			//printf("GOT: line=%s PARSED TO: --uuid=%s --type=%s --file=%s\n", line, uuidStr, filetype, filepath);
 		}
 		if ( strlen(filepath) > 0 ) {
@@ -169,7 +169,7 @@ int main(int argc, char ** argv) {
 		}
 
 		for (prev++; prev < limit; prev++) {
-			printf("val = %s, len = %d\n", argv[prev], strlen(argv[prev]));
+			printf("val = %s, len = %lu\n", argv[prev], strlen(argv[prev]));
 			if (strlen(argv[prev]) == 0)
 				continue;
 			rzb_log (LOG_DEBUG,"Positional argument %d  %s",prev, argv[prev]);

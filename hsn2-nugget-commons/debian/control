@@ -1,0 +1,13 @@
+Source: python-hsn2-rb-nugget-commons
+Section: python
+Priority: optional
+Maintainer: CERT Polska <info@cert.pl>
+Build-Depends: debhelper (>= 8.0.0), python-all (>= 2.6.6-3), python-setuptools
+Standards-Version: 3.9.3
+X-Python-Version: >= 2.6
+
+Package: python-hsn2-rb-nugget-commons
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, python-hsn2-lib
+Provides: ${python:Provides}
+Description: Common files required for running Razorback Nuggets as HSN2 python services.

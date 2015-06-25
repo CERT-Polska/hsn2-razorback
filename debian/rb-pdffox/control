@@ -1,9 +1,0 @@
-Package: hsn2-rb-pdffox
-Version: {VER}
-Section: unknown
-Priority: optional
-Architecture: {ARCH}
-Depends: hsn2-rb-nugget-commons, libconfig9, libssl1.0.0, uuid
-Maintainer: Wojciech Michalak (wojciech.michalak@nask.pl)
-Description: Razorback rb-pdffox Nugget (pdfFox) as a HSN2 python service.
-Distribution: {DEBIAN_DIST}

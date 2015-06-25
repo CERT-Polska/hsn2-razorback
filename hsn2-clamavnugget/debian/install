@@ -1,0 +1,3 @@
+clamav.conf /etc/hsn2/razorback/
+clamavnugget_output.py /etc/hsn2/razorback/mappings
+rb-clamavnugget /opt/hsn2/rb-clamavnugget/

@@ -1,9 +1,0 @@
-Package: hsn2-rb-officecat
-Version: {VER}
-Section: unknown
-Priority: optional
-Architecture: {ARCH}
-Depends: hsn2-rb-nugget-commons, libconfig9, libssl1.0.0, uuid, wine
-Maintainer: Wojciech Michalak (wojciech.michalak@nask.pl)
-Description: Razorback rb-officecat nugget (officeCat) as a HSN2 python service. Requires wine and the officecat tool.
-Distribution: {DEBIAN_DIST}
