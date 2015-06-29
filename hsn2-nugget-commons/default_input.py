@@ -17,14 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
-Created on 11-04-2012
-
-@author: wojciechm
-'''
-import sys
-sys.path.append("/opt/hsn2/python/commlib")
-from hsn2taskprocessor import ParamException
+from hsn2_commons.hsn2taskprocessor import ParamException
 
 class DefaultInputMapper():
 

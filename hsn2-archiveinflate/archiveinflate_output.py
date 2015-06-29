@@ -17,11 +17,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
-Created on 11-04-2012
-
-@author: wojciechm
-'''
 from default_output import DefaultOutputMapper
 
 class OutputMapper(DefaultOutputMapper):

@@ -17,15 +17,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import sys
-sys.path.append("/opt/hsn2/python/commlib")
-from hsn2service import HSN2Service
-from hsn2service import startService
-from nuggetTaskProcessor import NuggetTaskProcessor
-from os import access
-from os import X_OK
-from os import path
 import logging
+from os import X_OK
+from os import access
+from os import path
+
+from hsn2_commons.hsn2service import HSN2Service
+from hsn2_commons.hsn2service import startService
+from hsn2_nugget_commons.nuggetTaskProcessor import NuggetTaskProcessor
 
 
 class MappingException(Exception):

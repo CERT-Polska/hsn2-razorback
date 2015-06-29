@@ -15,14 +15,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
-import sys
-sys.path.append("/opt/hsn2/python/commlib")
-from hsn2taskprocessor import HSN2TaskProcessor
-from hsn2taskprocessor import ParamException, ProcessingException
-from hsn2osadapter import ObjectStoreException
 import logging
 import subprocess
+
+from hsn2_commons.hsn2osadapter import ObjectStoreException
+from hsn2_commons.hsn2taskprocessor import HSN2TaskProcessor
+from hsn2_commons.hsn2taskprocessor import ParamException, ProcessingException
 
 
 class NuggetTaskProcessor(HSN2TaskProcessor):

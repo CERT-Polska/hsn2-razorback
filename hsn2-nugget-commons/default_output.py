@@ -17,19 +17,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'''
-Created on 11-04-2012
 
-@author: wojciechm
-'''
-import sys
-sys.path.append("/opt/hsn2/python/commlib")
-import re
-import hsn2objectwrapper as ow
-import os
 import logging
+import os
+import re
 import shutil
-from hsn2taskprocessor import ProcessingException, InputException
+
+import hsn2_commons.hsn2objectwrapper as ow
+from hsn2_commons.hsn2taskprocessor import ProcessingException, InputException
+
 
 class UnexpectedOutputException(ProcessingException):
 	pass

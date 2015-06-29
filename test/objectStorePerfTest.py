@@ -17,14 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-'''cd
-Created on 19-04-2012
-
-@author: pawelb
-'''
-
 import sys
-sys.path.append("/opt/hsn2/python/commlib")
 from hsn2osconnector import ObjectStoreException
 import argparsealiases as argparse
 from hsn2rmq import RabbitMqBus
