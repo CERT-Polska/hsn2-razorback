@@ -1,9 +1,9 @@
 #!/usr/bin/python -tt
 
 # Copyright (c) NASK, NCSC
-# 
+#
 # This file is part of HoneySpider Network 2.0.
-# 
+#
 # This is a free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -21,18 +21,18 @@ from default_output import DefaultOutputMapper
 
 
 class OutputMapper(DefaultOutputMapper):
-	'''
-	Output mapper class configured for clamavNugget
-	'''
+    '''
+    Output mapper class configured for clamavNugget
+    '''
 
-	def _defineOutputNameMapping(self):
-		prefix = "rb_clamavnugget_"
-		# Mapping is in the following notation: <BEFORE> : <AFTER>
-		# An <AFTER> of length 0 (ex. "") means ignore.
-		self.output_name_mapping = {
-			"MALWARENAME" : prefix + "malwarename",
-			"Message" : prefix + "verdict_message",
-			"SourceFire flags" : prefix + "classification",
-			"Priority" : prefix + "verdict_priority",
-			"RETURN" : prefix + "return_value"
-		}
+    def _defineOutputNameMapping(self):
+        prefix = "rb_clamavnugget_"
+        # Mapping is in the following notation: <BEFORE> : <AFTER>
+        # An <AFTER> of length 0 (ex. "") means ignore.
+        self.output_name_mapping = {
+            "MALWARENAME": prefix + "malwarename",
+            "Message": prefix + "verdict_message",
+            "SourceFire flags": prefix + "classification",
+            "Priority": prefix + "verdict_priority",
+            "RETURN": prefix + "return_value"
+        }
