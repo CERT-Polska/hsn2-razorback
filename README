@@ -5,6 +5,19 @@ The HSN2 Razorback service is for executing wrapped Razorback nuggets.
 Currently there are six services wrapped.
 
 
+Dependencies needed to build the nuggets packages:
+build-essentials
+devscripts
+uuid-dev
+libssl-dev
+libconfig-dev
+libcurl4-openssl-dev
+libjson0-dev
+libarchive-dev
+
+Some more information: info.txt
+
+
 
 This repository is a part of bigger project: Honeyspider Network 2.0.
 Project bundle is located at: https://github.com/CERT-Polska/hsn2-bundle.

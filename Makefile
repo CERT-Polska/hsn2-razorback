@@ -35,11 +35,11 @@ CC = cc
 
 #Libraries required for each nugget
 SHAREDLIBS = -lpthread -lrt `pkg-config openssl --libs` `pkg-config uuid --libs` `pkg-config libconfig --libs`
-CLAMAVLIBS = $(SHAREDLIBS) -lconfig  
+CLAMAVLIBS = $(SHAREDLIBS) -lconfig
 VIRUSTOTALLIBS = $(SHAREDLIBS) -lcurl  -ljson
 ARCHIVEINFLATELIBS =  $(SHAREDLIBS) -larchive
-SWFSCANNERLIBS = $(SHAREDLIBS) -lm `pkg-config zlib --libs` 
-PDFFOXLIBS = $(SHAREDLIBS) -lm `pkg-config zlib --libs` 
+SWFSCANNERLIBS = $(SHAREDLIBS) -lm `pkg-config zlib --libs`
+PDFFOXLIBS = $(SHAREDLIBS) -lm `pkg-config zlib --libs`
 OFFICECATLIBS = $(SHAREDLIBS)
 
 TARGETLOCATION = /opt/hsn2
@@ -48,7 +48,7 @@ DEBIAN_DIST=experimental
 
 # scriptNugget - works, but not interesting - requires scripts anyhow.
 # yaraNugget - seg faults - better to implement on our own either way.
-all: swfScanner clamavNugget officeCat pdfFox virusTotal archiveInflate 
+all: swfScanner clamavNugget officeCat pdfFox virusTotal archiveInflate
 
 packages32: swfScannerPKG32 clamavNuggetPKG32 pdfFoxPKG32 virusTotalPKG32 archiveInflatePKG32 officeCatPKG32
 packages64: swfScannerPKG64 clamavNuggetPKG64 pdfFoxPKG64 virusTotalPKG64 archiveInflatePKG64 officeCatPKG64
@@ -68,20 +68,20 @@ clamavNugget:
 	cd $(CLAMAVNUGGET); rm -f *.o
 
 nugget-commons:
-	cd hsn2-nugget-commons; debuild -us -uc
+	cd hsn2-nugget-commons; debuild -us -uc; debuild clean
 
 setArch32:
 	$(eval ARCH := i386)
 
 setArch64:
 	$(eval ARCH := amd64)
-	
+
 clamavNuggetPKG32: setArch32 clamavNuggetPKG
 clamavNuggetPKG64: setArch64 clamavNuggetPKG
 clamavNuggetPKG: clamavNugget
 	mv $(CLAMAVNUGGET)/$(CLAMAVNUGGET) hsn2-clamavnugget/
-	cd hsn2-clamavnugget; debuild -a$(ARCH) -us -uc
-	
+	cd hsn2-clamavnugget; debuild -a$(ARCH) -us -uc; debuild clean
+
 swfScanner:
 	rm -rf $(SWFSCANNER)
 	cp -rf $(WRAPPERDIR) $(SWFSCANNER)
@@ -94,7 +94,7 @@ swfScannerPKG32: setArch32 swfScannerPKG
 swfScannerPKG64: setArch64 swfScannerPKG
 swfScannerPKG: swfScanner
 	mv $(SWFSCANNER)/$(SWFSCANNER) hsn2-swfscanner/
-	cd hsn2-swfscanner; debuild -a$(ARCH) -us -uc
+	cd hsn2-swfscanner; debuild -a$(ARCH) -us -uc; debuild clean
 
 officeCat:
 	rm -rf $(OFFICECAT)
@@ -108,8 +108,8 @@ officeCat:
 
 officeCatPKG: officeCat
 	mv $(OFFICECAT)/$(OFFICECAT) hsn2-officecat/
-	cd hsn2-officecat; debuild -a$(ARCH) -us -uc
-	
+	cd hsn2-officecat; debuild -a$(ARCH) -us -uc; debuild clean
+
 officeCatPKG32: setArch32 officeCatPKG
 officeCatPKG64: setArch64 officeCatPKG
 
@@ -126,13 +126,13 @@ pdfFoxPKG32: setArch32 pdfFoxPKG
 pdfFoxPKG64: setArch64 pdfFoxPKG
 pdfFoxPKG: pdfFox
 	mv $(PDFFOX)/$(PDFFOX) hsn2-pdffox/
-	cd hsn2-pdffox; debuild -a$(ARCH) -us -uc
-	
+	cd hsn2-pdffox; debuild -a$(ARCH) -us -uc; debuild clean
+
 virusTotal:
 	rm -rf $(VIRUSTOTAL)
 	cp -rf $(WRAPPERDIR) $(VIRUSTOTAL)
 	cp -rf $(NUGGETSDIR)/$(VIRUSTOTALORIG)/src/* ./$(VIRUSTOTAL)/
-	cd $(VIRUSTOTAL); cc  *.c $(EXTRASC) 
+	cd $(VIRUSTOTAL); cc  *.c $(EXTRASC)
 	cd $(VIRUSTOTAL); cc *.o -o $(VIRUSTOTAL) $(VIRUSTOTALLIBS)
 	cd $(VIRUSTOTAL); rm -f *.o
 	#mv ./$(VIRUSTOTAL)/$(VIRUSTOTALORIG) ./$(VIRUSTOTAL)/$(VIRUSTOTAL)
@@ -141,7 +141,7 @@ virusTotalPKG32: setArch32 virusTotalPKG
 virusTotalPKG64: setArch64 virusTotalPKG
 virusTotalPKG: virusTotal
 	mv $(VIRUSTOTAL)/$(VIRUSTOTAL) hsn2-virustotal/
-	cd hsn2-virustotal; debuild -a$(ARCH) -us -uc
+	cd hsn2-virustotal; debuild -a$(ARCH) -us -uc; debuild clean
 
 archiveInflate:
 	rm -rf $(ARCHIVEINFLATE)
@@ -156,13 +156,13 @@ archiveInflatePKG32: setArch32 archiveInflatePKG
 archiveInflatePKG64: setArch64 archiveInflatePKG
 archiveInflatePKG: archiveInflate
 	mv $(ARCHIVEINFLATE)/$(ARCHIVEINFLATE) hsn2-archiveinflate/
-	cd hsn2-archiveinflate; debuild -a$(ARCH) -us -uc
+	cd hsn2-archiveinflate; debuild -a$(ARCH) -us -uc; debuild clean
 
 clean:
 	rm -f *.o
 	rm -rf $(SWFSCANNER) $(CLAMAVNUGGET) $(OFFICECAT) $(PDFFOX) $(VIRUSTOTAL) $(ARCHIVEINFLATE)
 	rm -rf nugget-commons $(SWFSCANNER)PKG $(CLAMAVNUGGET)PKG $(OFFICECAT)PKG $(PDFFOX)PKG $(VIRUSTOTAL)PKG $(ARCHIVEINFLATE)PKG
-	rm -f *.deb *.dsc *.tar.xz *.build *.changes
+	rm -f *.deb *.dsc *.tar.gz *.build *.changes
 	cd hsn2-archiveinflate; debuild clean
 	cd hsn2-clamavnugget; debuild clean
 	cd hsn2-nugget-commons; debuild clean
@@ -170,7 +170,7 @@ clean:
 	cd hsn2-pdffox; debuild clean
 	cd hsn2-swfscanner; debuild clean
 	cd hsn2-virustotal; debuild clean
-	
+
 test: tests
 
 tests:
