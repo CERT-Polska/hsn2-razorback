@@ -162,7 +162,7 @@ clean:
 	rm -f *.o
 	rm -rf $(SWFSCANNER) $(CLAMAVNUGGET) $(OFFICECAT) $(PDFFOX) $(VIRUSTOTAL) $(ARCHIVEINFLATE)
 	rm -rf nugget-commons $(SWFSCANNER)PKG $(CLAMAVNUGGET)PKG $(OFFICECAT)PKG $(PDFFOX)PKG $(VIRUSTOTAL)PKG $(ARCHIVEINFLATE)PKG
-	rm -f *.deb *.dsc *.tar.gz *.build *.changes
+	rm -f *.deb *.dsc *.tar.* *.build *.changes
 	cd hsn2-archiveinflate; debuild clean
 	cd hsn2-clamavnugget; debuild clean
 	cd hsn2-nugget-commons; debuild clean
