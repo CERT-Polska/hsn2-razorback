@@ -15,9 +15,9 @@ Razorback Nuggets.
 Currently, it detects the following malicious Flash file that exploits the
 following CVEs:
 
-CVE-2005-2628
-CVE-2006-0323
-CVE-2007-0071
+CVE-2.15-2628
+CVE-2.16-0323
+CVE-2.17-0071
 
 -- Future Work --
 
