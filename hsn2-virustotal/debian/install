@@ -1,0 +1,3 @@
+virustotal.conf /etc/hsn2/razorback/
+virustotal_output.py /etc/hsn2/razorback/mappings
+rb-virustotal /opt/hsn2/rb-virustotal/

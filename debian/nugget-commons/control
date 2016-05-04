@@ -1,9 +1,0 @@
-Package: hsn2-rb-nugget-commons
-Version: {VER}
-Section: unknown
-Priority: optional
-Architecture: all
-Depends: python-hsn2-lib
-Maintainer: Wojciech Michalak (wojciech.michalak@nask.pl)
-Description: Common files required for running Razorback Nuggets as HSN2 python services.
-Distribution: {DEBIAN_DIST}

@@ -1,0 +1,3 @@
+pdffox.conf /etc/hsn2/razorback/
+pdffox_output.py /etc/hsn2/razorback/mappings
+rb-pdffox /opt/hsn2/rb-pdffox/

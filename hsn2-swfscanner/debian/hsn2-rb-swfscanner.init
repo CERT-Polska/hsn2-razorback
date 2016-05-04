@@ -1,0 +1,37 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:               hsn2-rb-swfscanner
+# Required-Start:         $remote_fs
+# Required-Stop:          $remote_fs
+# Default-Start:          2 3 4 5
+# Default-Stop:           0 1 6
+# Short-Description:      Start/Stop the HSN2 Razorback rb-swfscanner Service
+# Description:            Start/Stop the HSN2 Razorback rb-swfscanner Service
+### END INIT INFO
+
+. /lib/hsn2/init-functions-python
+
+NAME="HSN2 Razorback rb-swfscanner Service"
+HSN2_SHORT="swfscanner"
+HSN2_COMPONENT="rb-${HSN2_SHORT}"
+
+HSN2_COMPONENT_HOME="/usr/lib/python2.7/dist-packages/hsn2_nugget_commons"
+HSN2_NUGGET_HOME="/opt/hsn2/$HSN2_COMPONENT"
+
+HSN2_MAIN_MODULE=nuggetService.py
+CONFFILE=/etc/hsn2/common.conf
+
+prepare_start() {
+	HSN2_COMPONENT_PARAMS="--connector=$BROKER_ADDRESS \
+		--datastore=http://$DATASTORE_ADDRESS \
+		--maxThreads=$MAX_THREADS \
+		--log-level=$LOG_LEVEL \
+		--service-name=$HSN2_COMPONENT \
+		--nugget=$HSN2_NUGGET_HOME/$HSN2_COMPONENT \
+		--output=${HSN2_SHORT}_output.py"
+}
+
+choose_python_service_action $@
+
+exit $?
